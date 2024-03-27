@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import utils.BrowserFactory;
 
@@ -43,7 +44,7 @@ public abstract class BasePage {
         wait.until(expectedConditions);
     }
 
-    public void verifyElementsOfCollection(List<WebElement> collection, String errorMessage, int size){
+    public void verifyElementsOfCollectionDisplayed(List<WebElement> collection, String errorMessage, int size){
         for(WebElement element:collection){
             softAssert.assertTrue(element.isDisplayed(), errorMessage);
         }
@@ -57,6 +58,11 @@ public abstract class BasePage {
         return new Object();
     }
 
+    public void verifyElementsOfCollectionContainsText(List<WebElement> collection, String text, String errorMessage){
+        for(WebElement element:collection){
+            Assert.assertTrue(element.getText().contains(text), errorMessage);
+        }
+    }
 
 }
 

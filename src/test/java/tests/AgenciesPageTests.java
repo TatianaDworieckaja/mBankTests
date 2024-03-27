@@ -1,24 +1,28 @@
 package tests;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class AgenciesPageTests extends BaseTest{
 
-    @Test
-    public void verifyMap(){
+    @Test(dataProvider = "locations-provider")
+    public void verifyMap(String location){
         homePage.openAccountsPageByClickButton()
                 .clickAgenciesIcon()
                 .scrollToMapView()
-                .typeLocation();
-              //  .verifyLocalizationOnMap();
+                .typeLocation(location)
+                .verifyAgencyAddressContains(location)
+                .proceedToHomePage();
     }
 
-    /*@Test(dependsOnMethods = "verifyMap")
-    public void verifyBankomatyTab(){
-        homePage.clickAgenciesIcon()
-                .scrollToMapView()
-                .goToBankomatyTab()
-                .typeLocalization()
-                .verifyLocalizationOnLeft();
-    }*/
+    @DataProvider(name = "locations-provider")
+    public Object[][] loginData() {
+        return new Object[][]{
+                {"Warszawa"},
+                {"Kraków"},
+                {"Wrocław"},
+                {"Łódź"}
+        };
+
+    }
 }

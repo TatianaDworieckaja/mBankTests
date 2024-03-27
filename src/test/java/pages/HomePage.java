@@ -18,8 +18,8 @@ public class HomePage extends BasePage {
 
     @FindBy(id="page-head")
     protected WebElement pageHeader;
-    @FindBy(xpath = "(//a[@href='/indywidualny/'])[1]")
-    private WebElement logo;
+    @FindBy(css = "#logotype")
+    protected WebElement logo;
 
     @FindBy(xpath = "//li[contains (@data-level, '1')]")
     private List<WebElement> topMenu;
@@ -54,12 +54,12 @@ public class HomePage extends BasePage {
     }
 
     public HomePage verifyTopMenu(){
-        verifyElementsOfCollection(topMenu,"One or more elements of topmenu are not displayed", 4 );
+        verifyElementsOfCollectionDisplayed(topMenu,"One or more elements of topmenu are not displayed", 4 );
         return this;
     }
 
     public HomePage verifySubMenu(){
-        verifyElementsOfCollection(subMenu,"One or more elements of submenu are not displayed", 9 );
+        verifyElementsOfCollectionDisplayed(subMenu,"One or more elements of submenu are not displayed", 9 );
         return this;
     }
 

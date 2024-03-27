@@ -52,12 +52,12 @@ public class AccountsPage extends HomePage {
     }
 
     public AccountsPage verifyFooterColumns() {
-        verifyElementsOfCollection(footerColumns, "The column in footer is not displayed", 6);
+        verifyElementsOfCollectionDisplayed(footerColumns, "The column in footer is not displayed", 6);
         return this;
     }
 
     public AccountsPage verifyFooterBanners() {
-        verifyElementsOfCollection(footerBoxes, "The banner in footer is not displayed", 2);
+        verifyElementsOfCollectionDisplayed(footerBoxes, "The banner in footer is not displayed", 2);
         return this;
     }
 
