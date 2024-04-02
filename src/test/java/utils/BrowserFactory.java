@@ -21,6 +21,8 @@ public class BrowserFactory {
                 break;
             default:
                 ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("user-data-dir=C:\\Users\\dworiet1\\Documents\\UserData");
+                chromeOptions.addArguments("profile-directory=Default");
                 driver = new ChromeDriver(chromeOptions);
         }
         driver.manage().window().maximize();
