@@ -17,7 +17,7 @@ public class BaseTest {
         driver = BrowserFactory.createDriver();
         driver.get(ProjectProperties.getBaseUrl());
         homePage = new HomePage(driver);
-        homePage.acceptGodDamnCookies();
+        //homePage.acceptGodDamnCookies();
     }
 
     @AfterMethod(alwaysRun = true)
