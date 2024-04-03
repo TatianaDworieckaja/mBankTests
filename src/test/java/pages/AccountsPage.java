@@ -33,17 +33,16 @@ public class AccountsPage extends HomePage {
     @FindBy(xpath = "//h2[contains(text(),'Przydatne dokumenty')]")
     private WebElement documentsSectionHeader;
 
-    @FindBy(css = "section.attachment-box > *:first-child :nth-child(2)")
-    private WebElement firstDocumentInList;
+    @FindBy(css = "a.doc[href^=\"/pdf\"]")
+    private WebElement firstPDF;
 
     public AccountsPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
-    public AccountsPage verifyAccountPageUrl() {
+    public void verifyAccountPageUrl() {
         Assert.assertEquals(driver.getCurrentUrl(), ProjectProperties.getBaseUrl() + "konta/konta-osobiste/ekonto-osobiste/?ref=hp_przy_zaloguj_nowy_kl", "AccountsPage is invalid");
-        return this;
     }
 
     public AccountsPage scrollToEndOfPage() {
@@ -75,13 +74,13 @@ public class AccountsPage extends HomePage {
     }
 
     public AccountsPage scrollIntoDocumentsSectionView() {
-        scrollPageUntilElementVisible(firstDocumentInList);
-        waitUntilWebElement(10, ExpectedConditions.visibilityOf(firstDocumentInList));
+        scrollPageUntilElementVisible(firstPDF);
+        waitUntilWebElement(10, ExpectedConditions.visibilityOf(firstPDF));
         return this;
     }
 
     public AccountsPage clickDocumentLink() {
-        firstDocumentInList.click();
+        firstPDF.click();
         return this;
     }
 
