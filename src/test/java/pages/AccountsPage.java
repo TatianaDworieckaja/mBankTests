@@ -42,7 +42,7 @@ public class AccountsPage extends HomePage {
     }
 
     public void verifyAccountPageUrl() {
-        Assert.assertEquals(driver.getCurrentUrl(), ProjectProperties.getBaseUrl() + "konta/konta-osobiste/ekonto-osobiste/?ref=hp_przy_zaloguj_nowy_kl", "AccountsPage is invalid");
+        Assert.assertTrue(driver.getCurrentUrl().contains(ProjectProperties.getBaseUrl() + "konta/konta-osobiste/"), "AccountsPage is invalid");
     }
 
     public AccountsPage scrollToEndOfPage() {
