@@ -63,7 +63,6 @@ public class AccountsPage extends HomePage {
     public AccountsPage scrollUpToTop() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", scrollUpArrow);
-       // scrollUpArrow.click();
         waitUntilWebElement(10, ExpectedConditions.visibilityOf(pageHeader));
         return this;
     }
